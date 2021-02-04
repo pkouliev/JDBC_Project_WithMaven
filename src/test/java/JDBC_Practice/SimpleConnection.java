@@ -1,5 +1,7 @@
 package JDBC_Practice;
 
+import Utility.ConfigurationReader;
+
 import java.sql.*;
 
 public class SimpleConnection {
@@ -12,9 +14,9 @@ public class SimpleConnection {
         SID: xe
         URL formula: jdbc:oracle:thin:@yourHostName:1521:xe
          */
-        String url = "jdbc:oracle:thin:@3.84.218.226:1521:xe";
-        String username = "hr";
-        String password = "hr";
+        String url = ConfigurationReader.getValue("JDBC_URL");
+        String username = ConfigurationReader.getValue("JDBC_UserName");
+        String password = ConfigurationReader.getValue("JDBC_PassWord");
 
         // step 1
         Connection connection = DriverManager.getConnection(url, username, password);

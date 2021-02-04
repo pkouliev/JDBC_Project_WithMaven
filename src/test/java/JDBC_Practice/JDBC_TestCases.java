@@ -1,5 +1,6 @@
 package JDBC_Practice;
 
+import Utility.ConfigurationReader;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,9 +16,9 @@ public class JDBC_TestCases {
     @BeforeMethod
     public void setUp() {
 
-        String url = "jdbc:oracle:thin:@3.84.218.226:1521:xe";
-        String username = "hr";
-        String password = "hr";
+        String url = ConfigurationReader.getValue("JDBC_URL");
+        String username = ConfigurationReader.getValue("JDBC_UserName");
+        String password = ConfigurationReader.getValue("JDBC_PassWord");
 
         try {
             connection = DriverManager.getConnection(url, username, password);
